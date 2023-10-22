@@ -1,0 +1,44 @@
+table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border-bottom: 1px solid #0a0a0a;
+    padding: 10px 3px;
+}
+
+tr:nth-child(even) {
+    background-color: #ebebeb;
+}
+
+td:nth-child(6) {
+    max-width: 100px;
+    overflow: hidden;
+    white-space: wrap;
+    text-overflow: ellipsis;
+}
+
+a {
+    text-decoration: none;
+    color: #0a0a0a;
+}
+
+button {
+    background-color: #81e049;
+    transition: 0.5s;
+}
+
+button:hover {
+    background-color: #a0f170;
+}
+
+form button {
+    background-color: #d35c5c;
+}
+
+form button:hover {
+    background-color: #ec7474;
+}
