@@ -14,7 +14,8 @@ tr:nth-child(even) {
     background-color: #ebebeb;
 }
 
-td:nth-child(6) {
+td:nth-child(6),
+td:nth-child(2) {
     max-width: 100px;
     overflow: hidden;
     white-space: wrap;

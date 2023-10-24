@@ -27,9 +27,9 @@ class SiswaController extends Controller
 
         $request->validate([
             'nis' => 'required|numeric|unique:siswa',
-            'nama' => 'required|string|regex:/^[A-Za-z]+$/',
+            'nama' => 'required|string',
             'jenis_kelamin' => 'required',
-            'tempat_lahir' => 'required|string|regex:/^[A-Za-z]+$/',
+            'tempat_lahir' => 'required|string',
             'tanggal_lahir' => 'required|date',
             'alamat' => 'required',
             'no_telp' => 'required|numeric',
@@ -53,9 +53,9 @@ class SiswaController extends Controller
         $siswa = Siswa::find($nis);
         $request->validate([
             'nis' => 'required|numeric|unique:siswa',
-            'nama' => 'required|string|regex:/^[A-Za-z]+$/',
+            'nama' => 'required|string',
             'jenis_kelamin' => 'required',
-            'tempat_lahir' => 'required|string|regex:/^[A-Za-z]+$/',
+            'tempat_lahir' => 'required|string',
             'tanggal_lahir' => 'required|date',
             'alamat' => 'required',
             'no_telp' => 'required|numeric',
