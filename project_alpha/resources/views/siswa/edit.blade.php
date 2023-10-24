@@ -28,6 +28,13 @@
                 @csrf
                 @method('PUT')
                 <div>
+                    <label for="nis">Nis :</label>
+                    <input type="number" id="nis" name="nis" value="{{ $siswa->nis}}" autocomplete="off" required>
+                    @error('nis')
+                    <div style="color: red;">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div>
                     <label for="nama">Nama :</label>
                     <input type="text" id="nama" name="nama" value="{{ $siswa->nama }}" autocomplete="off" required>
                     @error('nama')
@@ -36,7 +43,15 @@
                 </div>
                 <div>
                     <label for="jenis_kelamin">Jenis Kelamin :</label>
-                    <input type="text" id="jenis_kelamin" name="jenis_kelamin" value="{{ $siswa->jenis_kelamin }}" autocomplete="off" required>
+                    <select name="jenis_kelamin" id="jenis_kelamin">
+                        @if ($siswa->jenis_kelamin == 'Pria')
+                        <option value="Pria">Pria</option>
+                        <option value="Wanita">Wanita</option>
+                        @else
+                        <option value="Wanita">Wanita</option>
+                        <option value="Pria">Pria</option>
+                        @endif
+                    </select>
                     @error('jenis_kelamin')
                     <div style="color: red;">{{ $message }}</div>
                     @enderror
@@ -69,7 +84,7 @@
                     <div style="color: red;">{{ $message }}</div>
                     @enderror
                 </div>
-                <button type="submit">Simpan</button>
+                <button type="submit" onclick="return confirm('Apakah Anda yakin ingin mengubah data ini?')">Simpan</button>
             </form>
         </div>
     </main>

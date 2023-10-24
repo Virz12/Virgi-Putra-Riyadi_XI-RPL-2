@@ -7,10 +7,13 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/styleBase.css')}}">
     <link rel="stylesheet" href="{{ asset('css/styleIndex.css')}}">
+    <!-- ICON -->
+    <script src="https://kit.fontawesome.com/a1fe272ba9.js" crossorigin="anonymous"></script>
     <title>Data Siswa</title>
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <nav>
         <div class="container">
             <img src="{{ asset('img/brand.png')}}" alt="Logo">

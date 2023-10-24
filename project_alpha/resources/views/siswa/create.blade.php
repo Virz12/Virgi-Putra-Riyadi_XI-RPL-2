@@ -27,7 +27,7 @@
             <form method="POST" action="{{ route('siswa.store') }}">
                 @csrf
                 <div>
-                    <label for="nis">NIS :</label>
+                    <label for="nis">Nis :</label>
                     <input type="number" id="nis" name="nis" autocomplete="off" required>
                     @error('nis')
                     <div style="color: red;">{{ $message }}</div>
@@ -41,14 +41,17 @@
                     @enderror
                 </div>
                 <div>
-                    <label for="jenis_kelamin">Jenis Kelamin:</label>
-                    <input type="text" id="jenis_kelamin" name="jenis_kelamin" placeholder="Pria atau Wanita" autocomplete="off" required>
+                    <label for="jenis_kelamin">Jenis Kelamin :</label><br>
+                    <select name="jenis_kelamin" id="jenis_kelamin">
+                        <option value="Pria">Pria</option>
+                        <option value="Wanita">Wanita</option>
+                    </select>
                     @error('jenis_kelamin')
                     <div style="color: red;">{{ $message }}</div>
                     @enderror
                 </div>
                 <div>
-                    <label for="tempat_lahir">Tempat Lahir:</label>
+                    <label for="tempat_lahir">Tempat Lahir :</label>
                     <input type="text" id="tempat_lahir" name="tempat_lahir" autocomplete="off" required>
                     @error('tempat_lahir')
                     <div style="color: red;">{{ $message }}</div>
@@ -75,7 +78,7 @@
                     <div style="color: red;">{{ $message }}</div>
                     @enderror
                 </div>
-                <button type="submit">Simpan</button>
+                <button type="submit" onclick="return confirm('Apakah Anda yakin ingin menambah data ini?')">Simpan</button>
             </form>
         </div>
     </main>

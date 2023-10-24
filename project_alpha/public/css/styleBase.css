@@ -12,7 +12,8 @@ body {
     background-color: #f2f2f2;
 }
 
-.container {
+.container,
+.notification {
     max-width: 1140px;
     margin: auto;
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Siswa;
+use Alert;
 
 class SiswaController extends Controller
 {
@@ -27,7 +28,7 @@ class SiswaController extends Controller
         $request->validate([
             'nis' => 'required|numeric|unique:siswa',
             'nama' => 'required|string|regex:/^[A-Za-z]+$/',
-            'jenis_kelamin' => 'required|string|in:Pria,Wanita,pria,wanita',
+            'jenis_kelamin' => 'required',
             'tempat_lahir' => 'required|string|regex:/^[A-Za-z]+$/',
             'tanggal_lahir' => 'required|date',
             'alamat' => 'required',
@@ -35,6 +36,7 @@ class SiswaController extends Controller
         ]);
 
         Siswa::create($request->all());
+        toast('Data Berhasil Ditambah', 'success')->position('top')->timerProgressBar();
         return redirect()->route('siswa.index');
     }
 
@@ -50,8 +52,9 @@ class SiswaController extends Controller
     {
         $siswa = Siswa::find($nis);
         $request->validate([
+            'nis' => 'required|numeric|unique:siswa',
             'nama' => 'required|string|regex:/^[A-Za-z]+$/',
-            'jenis_kelamin' => 'required|string|in:Pria,Wanita,pria,wanita',
+            'jenis_kelamin' => 'required',
             'tempat_lahir' => 'required|string|regex:/^[A-Za-z]+$/',
             'tanggal_lahir' => 'required|date',
             'alamat' => 'required',
@@ -59,6 +62,7 @@ class SiswaController extends Controller
         ]);
 
         $siswa->update($request->all());
+        toast('Data Berhasil Diubah', 'success')->position('top')->timerProgressBar();
         return redirect()->route('siswa.index');
     }
 
@@ -67,6 +71,7 @@ class SiswaController extends Controller
     {
         $siswa = Siswa::find($nis);
         $siswa->delete();
+        toast('Data Berhasil Dihapus', 'success')->position('top')->timerProgressBar();
         return redirect()->route('siswa.index');
     }
 }
