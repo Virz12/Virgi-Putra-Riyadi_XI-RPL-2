@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Siswa;
 use Alert;
+use Illuminate\Validation\Rule;
 
 class SiswaController extends Controller
 {
@@ -24,7 +25,6 @@ class SiswaController extends Controller
     //Menyimpan data yang ditambahkan
     public function store(Request $request)
     {
-
         $request->validate([
             'nis' => 'required|numeric|unique:siswa',
             'nama' => 'required|string',
@@ -49,19 +49,24 @@ class SiswaController extends Controller
 
     //Menyimpan perubahan data Siswa
     public function update(Request $request, $nis)
-    {
-        $siswa = Siswa::find($nis);
-        $request->validate([
-            'nis' => 'required|numeric|unique:siswa',
-            'nama' => 'required|string',
-            'jenis_kelamin' => 'required',
-            'tempat_lahir' => 'required|string',
-            'tanggal_lahir' => 'required|date',
-            'alamat' => 'required',
-            'no_telp' => 'required|numeric',
+    {   
+        $siswa = Siswa::FindorFail($nis);
+        
+        $validasi = $request->validate([
+            "nis" => [
+                "required",
+                Rule::unique('siswa', 'nis')->ignore($nis, 'nis'),
+            ],
+                'nama' => 'required|string',
+                'jenis_kelamin' => 'required',
+                'tempat_lahir' => 'required|string',
+                'tanggal_lahir' => 'required|date',
+                'alamat' => 'required',
+                'no_telp' => 'required|numeric'
         ]);
 
-        $siswa->update($request->all());
+
+        Siswa::where("nis", $siswa->nis)->update($validasi);
         toast('Data Berhasil Diubah', 'success')->position('top')->timerProgressBar();
         return redirect()->route('siswa.index');
     }

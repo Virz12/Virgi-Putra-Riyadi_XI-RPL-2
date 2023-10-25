@@ -22,7 +22,7 @@
     </nav>
     <main>
         <div class="container">
-            <button><a href="{{ route('siswa.create')}}">Tambah Siswa</a></button>
+            <a href="{{ route('siswa.create')}}"><button>Tambah Siswa</button></a>
             <table>
                 <thead>
                     <tr>
@@ -47,7 +47,7 @@
                         <td>{{ $data->alamat}}</td>
                         <td>{{ $data->no_telp}}</td>
                         <td>
-                            <button><a href="{{ route('siswa.edit', $data->nis) }}">Edit</a></button>
+                            <a href="{{ route('siswa.edit', $data->nis) }}"><button>Edit</button></a>
                         </td>
                         <td>
                             <form action="{{ route('siswa.destroy', $data->nis) }}" method="POST">
