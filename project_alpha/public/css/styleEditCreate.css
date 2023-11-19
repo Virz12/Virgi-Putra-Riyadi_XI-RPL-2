@@ -33,10 +33,11 @@ i {
 }
 
 button {
-    background-color: #81e049;
-    transition: 0.5s;
+    background-color: #4fc40c;
+    transition: 0.3s;
+    color: #fff;
 }
 
 button:hover {
-    background-color: #a0f170;
+    background-color: #4fb613;
 }

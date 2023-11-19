@@ -1,3 +1,30 @@
+.addSearch {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+}
+
+.btnSearch {
+    border-radius: 3px 0px 0px 3px;
+    background-color: #c41700;
+}
+
+.btnSearch:hover {
+    background-color: #af1a06;
+}
+
+input {
+    padding: 8px 6px;
+    margin-left: -4px;
+    border-radius: 0px 3px 3px 0px;
+    border: none;
+    background-color: #e9e9e9;
+}
+
+input:focus {
+    outline: none;
+}
+
 table {
     width: 100%;
     text-align: center;
@@ -14,32 +41,40 @@ tr:nth-child(even) {
     background-color: #ebebeb;
 }
 
-td:nth-child(6),
-td:nth-child(2) {
+td:nth-child(6) {
     max-width: 100px;
     overflow: hidden;
     white-space: wrap;
     text-overflow: ellipsis;
 }
 
-a {
+a,
+button {
     text-decoration: none;
-    color: #0a0a0a;
+    color: #fff;
 }
 
 button {
-    background-color: #81e049;
-    transition: 0.5s;
+    background-color: #4fc40c;
+    transition: 0.3s;
 }
 
 button:hover {
-    background-color: #a0f170;
+    background-color: #4fb613;
 }
 
-form button {
-    background-color: #d35c5c;
+.delete {
+    background-color: #d33;
 }
 
-form button:hover {
-    background-color: #ec7474;
+.delete:hover {
+    background-color: #ca5151;
+}
+
+div.swal2-actions button.swal2-confirm {
+    background-color: #4fc40c;
+}
+
+div.swal2-actions button.swal2-cancel {
+    background-color: #d33;
 }

@@ -18,7 +18,7 @@ body {
     margin: auto;
 }
 
-nav {
+.header {
     background-color: #c41700;
     height: 70px;
     box-shadow: 0 0 30px rgba(28, 39, 60, 0.08);
@@ -31,7 +31,7 @@ nav {
     margin: 8px 0;
 }
 
-nav .container {
+.header .container {
     display: flex;
     align-items: center;
     color: #fff;
@@ -39,6 +39,7 @@ nav .container {
 
 .container h1 {
     margin-left: 20px;
+    font-size: x-large;
 }
 
 main .container {
@@ -53,7 +54,7 @@ main .container {
 button {
     cursor: pointer;
     border: none;
-    padding: 5px;
+    padding: 8px;
     border-radius: 3px;
 }
 

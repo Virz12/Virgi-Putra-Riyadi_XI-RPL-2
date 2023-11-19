@@ -13,23 +13,24 @@
 </head>
 
 <body>
-    <nav>
+    @include('sweetalert::alert')
+    <div class="header">
         <div class="container">
-            <img src="{{ asset('img/brand.png')}}" alt="Logo">
+            <img src="{{ asset('img/brand.png') }}" alt="Logo">
             <h1>EDIT DATA SISWA</h1>
         </div>
-    </nav>
+    </div>
     <main>
         <div class="container">
-            <a href="{{ route('siswa.index')}}">
+            <a href="{{ route('siswa.index') }}">
                 <i class="fa-solid fa-arrow-left"></i>Kembali
             </a>
-            <form method="POST" action="{{ route('siswa.update', $siswa->nis) }}">
+            <form method="POST" id="store" action="{{ route('siswa.update', $siswa->nis) }}">
                 @csrf
                 @method('PUT')
                 <div>
                     <label for="nis">Nis :</label>
-                    <input type="number" id="nis" name="nis" value="{{ $siswa->nis}}" autocomplete="off" required>
+                    <input type="number" id="nis" name="nis" value="{{ $siswa->nis }}" autocomplete="off" required>
                     @error('nis')
                     <div style="color: red;">{{ $message }}</div>
                     @enderror
@@ -84,13 +85,32 @@
                     <div style="color: red;">{{ $message }}</div>
                     @enderror
                 </div>
-                <button type="submit" onclick="return confirm('Apakah Anda yakin ingin mengubah data ini?')">Simpan</button>
+                <button type="submit" id="btnSubmit">Simpan</button>
             </form>
         </div>
     </main>
     <footer>
         <span>Copyright © Made By Virgi</span>
     </footer>
+    <script>
+        document.getElementById('btnSubmit').addEventListener('click', function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Ubah Data',
+                text: 'Apakah kamu yakin?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#4fc40c',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('store').submit();
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
