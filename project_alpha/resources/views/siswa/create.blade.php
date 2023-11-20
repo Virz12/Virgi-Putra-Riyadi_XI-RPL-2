@@ -29,7 +29,7 @@
                 @csrf
                 <div>
                     <label for="nis">Nis :</label>
-                    <input type="number" value="{{ @old('nis') }}" id="nis" name="nis" autocomplete="off">
+                    <input type="number" id="nis" name="nis" autocomplete="off">
                     @error('nis')
                     <div style="color: red;">{{ $message }}</div>
                     @enderror
